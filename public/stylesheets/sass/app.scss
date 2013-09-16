@@ -1,20 +1,144 @@
+// -----------------------------------------------------------------------------
+// Variables
+// -----------------------------------------------------------------------------
+$hero: #312736;
+$dark: #d4838f;
+$light: #d6abb1;
+$lightest: #fafafa;
+$white: #fff;
+
+// -----------------------------------------------------------------------------
+// Mixins
+// -----------------------------------------------------------------------------
+@mixin to-right {
+  float: right;
+  clear: right;
+}
+
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin stars-and-forks($font-size) {
+  b.stars, b.forks {
+    font-weight: bold;
+    display: inline-block;
+    &:before {
+      display: inline-block;
+      text-align: center;
+      font-size: $font-size;
+      width: $font-size * 1.4;
+    }
+  }
+
+  b.stars:before {
+    content: '\2605';
+  }
+
+  b.forks:before {
+    content: '\2646';
+    @include rotate(90deg);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Main
+// -----------------------------------------------------------------------------
 body {
-  color: #666;
-  background-color: #fff;
+  color: $dark;
+  background-color: $white;
   font-family: helvetica, arial, sans-serif;
-  font-size: 13px;
   margin: 0;
   padding: 0;
 }
 
 h1 {
-  font-size: 13px;
   margin: 0;
   padding: 0;
+  background-color: $hero;
   a {
     display: block;
-    line-height: 20px;
+    line-height: 80px;
     padding: 6px 20px;
-    border-bottom: 1px solid #ddd;
+  }
+}
+
+a {
+  color: $dark;
+  background-color: transparent;
+  text-decoration: none;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+#avatar-frame {
+  img {
+    position: relative;
+    top: 14px;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+  }
+}
+
+#projects-info {
+  @include to-right;
+  @include stars-and-forks(32px);
+}
+
+#projects-count {
+  font-weight: normal;
+  color: $light;
+  display: inline-block;
+  line-height: 1.3em;
+  margin-left: .5em;
+}
+
+#repos-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    display: inline;
+    &:nth-child(odd) a {
+      background-color: $lightest;
+    }
+    a {
+      position: relative;
+      display: block;
+      line-height: 40px;
+      padding: 6px 20px;
+      overflow: hidden;
+      .info {
+        @include to-right;
+        @include stars-and-forks(16px);
+      }
+      .desc {
+        color: $light;
+        display: inline-block;
+        line-height: 1.3em;
+        margin-left: .5em;
+      }
+      &:hover {
+        color: $white;
+        background-color: $hero;
+      }
+    }
+    &.fork {
+      a:before {
+        content: '\2646';
+        position: absolute;
+        left: 5px;
+        @include rotate(90deg);
+      }
+    }
   }
 }
