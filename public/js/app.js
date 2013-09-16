@@ -43,9 +43,9 @@ var load_github_repo = function() {
                 '</a></li>';
       }
       reposList.innerHTML = html;
-      projectsCount.innerHTML = total_repos + ' repositories; ' +
+      projectsCount.innerHTML = total_repos + ' repositories (' +
                                 total_public_repos + ' public, ' +
-                                total_fork_repos + ' forks';
+                                total_fork_repos + ' forks)';
       projectsInfo.innerHTML = '<b class="stars">' + total_watchers + '</b>' +
                                '<b class="forks">' + total_forks + '</b>';
     }
