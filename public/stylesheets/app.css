@@ -1,17 +1,113 @@
 body {
-  color: #666;
-  background-color: #fff;
+  color: #d4838f;
+  background-color: white;
   font-family: helvetica, arial, sans-serif;
-  font-size: 13px;
   margin: 0;
   padding: 0; }
 
 h1 {
-  font-size: 13px;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background-color: #312736; }
   h1 a {
     display: block;
-    line-height: 20px;
-    padding: 6px 20px;
-    border-bottom: 1px solid #ddd; }
+    line-height: 80px;
+    padding: 6px 20px; }
+
+a {
+  color: #d4838f;
+  background-color: transparent;
+  text-decoration: none;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s; }
+
+#avatar-frame img {
+  position: relative;
+  top: 14px;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px; }
+
+#projects-info {
+  float: right;
+  clear: right; }
+  #projects-info b.stars, #projects-info b.forks {
+    font-weight: bold;
+    display: inline-block; }
+    #projects-info b.stars:before, #projects-info b.forks:before {
+      display: inline-block;
+      text-align: center;
+      font-size: 32px;
+      width: 44.8px; }
+  #projects-info b.stars:before {
+    content: '\2605'; }
+  #projects-info b.forks:before {
+    content: '\2646';
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg); }
+
+#projects-count {
+  font-weight: normal;
+  color: #d6abb1;
+  display: inline-block;
+  line-height: 1.3em;
+  margin-left: .5em; }
+
+#repos-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  #repos-list li {
+    display: inline; }
+    #repos-list li:nth-child(odd) a {
+      background-color: #fafafa; }
+    #repos-list li a {
+      position: relative;
+      display: block;
+      line-height: 40px;
+      padding: 6px 20px;
+      overflow: hidden; }
+      #repos-list li a .info {
+        float: right;
+        clear: right; }
+        #repos-list li a .info b.stars, #repos-list li a .info b.forks {
+          font-weight: bold;
+          display: inline-block; }
+          #repos-list li a .info b.stars:before, #repos-list li a .info b.forks:before {
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            width: 22.4px; }
+        #repos-list li a .info b.stars:before {
+          content: '\2605'; }
+        #repos-list li a .info b.forks:before {
+          content: '\2646';
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg); }
+      #repos-list li a .desc {
+        color: #d6abb1;
+        display: inline-block;
+        line-height: 1.3em;
+        margin-left: .5em; }
+      #repos-list li a:hover {
+        color: white;
+        background-color: #312736; }
+    #repos-list li.fork a:before {
+      content: '\2646';
+      position: absolute;
+      left: 5px;
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      transform: rotate(90deg); }
