@@ -25,29 +25,29 @@ var load_github_repo = function() {
       var total_forks = 0;
       for (var i = 0; i < total_repos; i++) {
         var repo = repos[i];
-        var fork = repo.fork? ' class="fork"' : '';
+        var fork = repo.fork? ' class="octicon-repo-forked"' : '';
         var watchers = repo.watchers;
         var forks = repo.forks;
         total_watchers += watchers;
         total_forks += forks;
         fork ? total_fork_repos++ : total_public_repos++;
-        html += '<li' + fork + '>' +
-                '<a href="' + repo.html_url + '">' +
+        html += '<li>' +
+                '<a ' + fork + 'href="' + repo.html_url + '">' +
                 '<span class="info">' +
                 '<b class="language">' + (repo.language || '') +'</b>' +
-                '<b class="stars">' + watchers + '</b>' +
-                '<b class="forks">' + forks + '</b>' +
+                '<b class="octicon-star">' + watchers + '</b>' +
+                '<b class="octicon-git-branch">' + forks + '</b>' +
                 '</span>' +
                 '<b>' + repo.name + '</b>' +
                 '<span class="desc">' + repo.description +'</span>' +
                 '</a></li>';
       }
       reposList.innerHTML = html;
-      projectsCount.innerHTML = total_repos + ' repositories (' +
+      projectsCount.innerHTML = total_repos + ' repos (' +
                                 total_public_repos + ' public, ' +
                                 total_fork_repos + ' forks)';
-      projectsInfo.innerHTML = '<b class="stars">' + total_watchers + '</b>' +
-                               '<b class="forks">' + total_forks + '</b>';
+      projectsInfo.innerHTML = '<b class="octicon-star">' + total_watchers + '</b>' +
+                               '<b class="octicon-git-branch">' + total_forks + '</b>';
     }
   );
 }
