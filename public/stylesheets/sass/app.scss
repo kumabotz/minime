@@ -1,4 +1,14 @@
 // -----------------------------------------------------------------------------
+// Fonts
+// -----------------------------------------------------------------------------
+@font-face {
+  font-family: 'octicons';
+  src: url('../fonts/octicons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// -----------------------------------------------------------------------------
 // Variables
 // -----------------------------------------------------------------------------
 $hero: #312736;
@@ -10,21 +20,13 @@ $white: #fff;
 // -----------------------------------------------------------------------------
 // Mixins
 // -----------------------------------------------------------------------------
-@mixin to-right {
-  float: right;
-  clear: right;
-}
-
-@mixin rotate($deg) {
-  -webkit-transform: rotate($deg);
-  -moz-transform: rotate($deg);
-  -ms-transform: rotate($deg);
-  -o-transform: rotate($deg);
-  transform: rotate($deg);
+@mixin octicons {
+  font-family: octicons;
+  -webkit-font-smoothing: antialiased;
 }
 
 @mixin stars-and-forks($font-size) {
-  b.stars, b.forks {
+  b.octicon-star, b.octicon-git-branch {
     font-weight: bold;
     display: inline-block;
     &:before {
@@ -34,15 +36,29 @@ $white: #fff;
       width: $font-size * 1.4;
     }
   }
+}
 
-  b.stars:before {
-    content: '\2605';
-  }
+@mixin to-right {
+  float: right;
+  clear: right;
+}
 
-  b.forks:before {
-    content: '\2646';
-    @include rotate(90deg);
-  }
+// -----------------------------------------------------------------------------
+// Octicons
+// -----------------------------------------------------------------------------
+.octicon-git-branch:before {
+  @include octicons;
+  content: '\f020';
+}
+
+.octicon-repo-forked:before {
+  @include octicons;
+  content: '\f002';
+}
+
+.octicon-star:before {
+  @include octicons;
+  content: '\f02a';
 }
 
 // -----------------------------------------------------------------------------
@@ -131,13 +147,9 @@ a {
         color: $white;
         background-color: $hero;
       }
-    }
-    &.fork {
-      a:before {
-        content: '\2646';
+      &.octicon-repo-forked:before {
         position: absolute;
         left: 5px;
-        @include rotate(90deg);
       }
     }
   }
