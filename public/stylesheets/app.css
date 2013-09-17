@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'octicons';
+  src: url("../fonts/octicons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+.octicon-git-branch:before {
+  font-family: octicons;
+  -webkit-font-smoothing: antialiased;
+  content: '\f020'; }
+
+.octicon-repo-forked:before {
+  font-family: octicons;
+  -webkit-font-smoothing: antialiased;
+  content: '\f002'; }
+
+.octicon-star:before {
+  font-family: octicons;
+  -webkit-font-smoothing: antialiased;
+  content: '\f02a'; }
+
 body {
   color: #d4838f;
   background-color: white;
@@ -35,23 +56,14 @@ a {
 #projects-info {
   float: right;
   clear: right; }
-  #projects-info b.stars, #projects-info b.forks {
+  #projects-info b.octicon-star, #projects-info b.octicon-git-branch {
     font-weight: bold;
     display: inline-block; }
-    #projects-info b.stars:before, #projects-info b.forks:before {
+    #projects-info b.octicon-star:before, #projects-info b.octicon-git-branch:before {
       display: inline-block;
       text-align: center;
       font-size: 32px;
       width: 44.8px; }
-  #projects-info b.stars:before {
-    content: '\2605'; }
-  #projects-info b.forks:before {
-    content: '\2646';
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg); }
 
 #projects-count {
   font-weight: normal;
@@ -77,23 +89,14 @@ a {
       #repos-list li a .info {
         float: right;
         clear: right; }
-        #repos-list li a .info b.stars, #repos-list li a .info b.forks {
+        #repos-list li a .info b.octicon-star, #repos-list li a .info b.octicon-git-branch {
           font-weight: bold;
           display: inline-block; }
-          #repos-list li a .info b.stars:before, #repos-list li a .info b.forks:before {
+          #repos-list li a .info b.octicon-star:before, #repos-list li a .info b.octicon-git-branch:before {
             display: inline-block;
             text-align: center;
             font-size: 16px;
             width: 22.4px; }
-        #repos-list li a .info b.stars:before {
-          content: '\2605'; }
-        #repos-list li a .info b.forks:before {
-          content: '\2646';
-          -webkit-transform: rotate(90deg);
-          -moz-transform: rotate(90deg);
-          -ms-transform: rotate(90deg);
-          -o-transform: rotate(90deg);
-          transform: rotate(90deg); }
       #repos-list li a .desc {
         color: #d6abb1;
         display: inline-block;
@@ -102,12 +105,6 @@ a {
       #repos-list li a:hover {
         color: white;
         background-color: #312736; }
-    #repos-list li.fork a:before {
-      content: '\2646';
-      position: absolute;
-      left: 5px;
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      transform: rotate(90deg); }
+      #repos-list li a.octicon-repo-forked:before {
+        position: absolute;
+        left: 5px; }
